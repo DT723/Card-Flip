@@ -65,26 +65,26 @@ card flip
 ///////////////////////////////////////////// */
 
 
-.container-card {
+.flip-card-container {
   position: relative;
   border: none;
   perspective: 1000px;
 }
 
-.flip-card {
+.flip-card-inner {
   position: relative;
   width: 100%;
   height: 100%;
-  transition: 1s;
-  -webkit-transition: 1s;
-  -moz-transition: 1s;
-  -ms-transition: 1s;
-  -o-transition: 1s;
+  transition: transform 1s;
   transform-style: preserve-3d;
   cursor: pointer;
+  -webkit-transition: transform 1s;
+  -moz-transition: transform 1s;
+  -ms-transition: transform 1s;
+  -o-transition: transform 1s;
 }
 
-.flip.flip-card {
+.flip.flip-card-inner {
   transform: rotateY(180deg);
   -webkit-transform: rotateY(180deg);
   -moz-transform: rotateY(180deg);
@@ -92,37 +92,49 @@ card flip
   -o-transform: rotateY(180deg);
 }
 
-.front-card, .back-card {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-  -webkit-backface-visibility: hidden;
-}
-
-.back-card {
-  transform: rotateY(180deg);
-  -webkit-transform: rotateY(180deg);
-  -moz-transform: rotateY(180deg);
-  -ms-transform: rotateY(180deg);
-  -o-transform: rotateY(180deg);
-}
-
- /* .card__face {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
+.flip-card-front,
+.flip-card-back {
+  position: relative;
+  background-color: white;
+  top: 0;
+  left: 0;
   overflow: hidden;
-} */
-
-/* .card__face--back {
-  background-color: var(--light);
-  transform: rotateY(180deg);
+  transition: all 1s;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
 }
 
-.card__content {
+.flip-card-back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+}
+
+.flip-card-inner, .flip-card-back {
+  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+  -moz-transform: rotateY(180deg);
+  -ms-transform: rotateY(180deg);
+  -o-transform: rotateY(180deg);
+}
+
+.flip-card-inner, .flip-card-front {
+  transform: rotateY(0deg);
+  -webkit-transform: rotateY(0deg);
+  -moz-transform: rotateY(0deg);
+  -ms-transform: rotateY(0deg);
+  -o-transform: rotateY(0deg);
+}
+
+
+/* .card__content {
   width: 100%;
   height: 100%;
 }
@@ -155,4 +167,4 @@ card flip
   color: var(--dark);
   font-size: 18px;
   line-height: 1.4;
-} */ 
+}  */
